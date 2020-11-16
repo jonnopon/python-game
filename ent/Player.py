@@ -5,7 +5,7 @@ from ent.Enemy import *
 
 class Player(Entity):
     def __init__(self, game, difficulty):
-        super().__init__(game, 100, 100, 25, 25)
+        super().__init__(game, 100, 100, 30, 30)
         self.health = 3 - difficulty
         self.maxSpeed = 500 + (difficulty * 50)
         self.xSpeed = self.maxSpeed

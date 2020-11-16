@@ -24,7 +24,7 @@ gameData = {
     "difficulty": 0,
     "canChangeMenu": True,
     "menuTimer": 0,
-    "menuTimerMax": 5,
+    "menuTimerMax": 50,
     "menuTimeout": True,
     "menuTimeoutTimer": 0,
     "menuTimeoutTimerMax": 20

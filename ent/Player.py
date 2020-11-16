@@ -15,7 +15,7 @@ class Player(Entity):
         self.invincibleTimerMax = 90
         self.color = "white"
         
-        self.image = tkinter.PhotoImage("res/images/shipUp.gif",
+        self.image = tkinter.PhotoImage(file="res/images/shipUp.gif",
                                         master = game.canvas)
         
     def update(self, canvas, delta):

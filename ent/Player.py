@@ -16,10 +16,10 @@ class Player(Entity):
         self.color = "white"
 
         self.images = {
-            "down": tkinter.PhotoImage(file="res/images/shipDown.gif", master=game.canvas),
-            "left": tkinter.PhotoImage(file="res/images/shipLeft.gif", master=game.canvas),
-            "up": tkinter.PhotoImage(file="res/images/shipUp.gif", master=game.canvas),
-            "right": tkinter.PhotoImage(file="res/images/shipRight.gif", master=game.canvas),
+            "down": tkinter.PhotoImage(file="res/shipDown.gif", master=game.canvas),
+            "left": tkinter.PhotoImage(file="res/shipLeft.gif", master=game.canvas),
+            "up": tkinter.PhotoImage(file="res/shipUp.gif", master=game.canvas),
+            "right": tkinter.PhotoImage(file="res/shipRight.gif", master=game.canvas),
         }
         self.image = self.images["right"]
         

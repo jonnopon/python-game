@@ -14,9 +14,14 @@ class Player(Entity):
         self.invincibleTimer = 0
         self.invincibleTimerMax = 90
         self.color = "white"
-        
-        self.image = tkinter.PhotoImage(file="res/images/shipUp.gif",
-                                        master = game.canvas)
+
+        self.images = {
+            "down": tkinter.PhotoImage(file="res/images/shipDown.gif", master=game.canvas),
+            "left": tkinter.PhotoImage(file="res/images/shipLeft.gif", master=game.canvas),
+            "up": tkinter.PhotoImage(file="res/images/shipUp.gif", master=game.canvas),
+            "right": tkinter.PhotoImage(file="res/images/shipRight.gif", master=game.canvas),
+        }
+        self.image = self.images["right"]
         
     def update(self, canvas, delta):
         super().update(canvas, delta)
@@ -43,3 +48,6 @@ class Player(Entity):
         
     def getHealth(self):
         return self.health
+    
+    def setImage(self, img):
+        self.image = self.images[img]

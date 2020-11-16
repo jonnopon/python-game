@@ -208,6 +208,7 @@ def gameFunc(game):
         or game.keyCodes.leftArrow in game.keys \
         or game.keyCodes.numPad4 in game.keys:
             
+        game.player.setImage("left")
         game.player.moveHor(-1)
         game.player.stopVer()
         
@@ -215,6 +216,7 @@ def gameFunc(game):
         or game.keyCodes.rightArrow in game.keys \
         or game.keyCodes.numPad6 in game.keys:
             
+        game.player.setImage("right")
         game.player.moveHor(1)
         game.player.stopVer()
         
@@ -222,12 +224,15 @@ def gameFunc(game):
         or game.keyCodes.upArrow in game.keys \
         or game.keyCodes.numPad8 in game.keys:
             
+        game.player.setImage("up")
         game.player.moveVer(-1)
         game.player.stopHor()
         
     elif game.keyCodes.s in game.keys \
         or game.keyCodes.downArrow in game.keys \
         or game.keyCodes.numPad5 in game.keys:
+
+        game.player.setImage("down")
         game.player.moveVer(1)
         game.player.stopHor()
         

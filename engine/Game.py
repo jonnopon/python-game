@@ -20,7 +20,7 @@ class Game:
         self.states = {}
         self.currentState = None
 
-        self.keys = []
+        self.keys = set()
         self.keyCodes = KeyCodes()
         
         self.delta = 0
@@ -36,10 +36,14 @@ class Game:
         self.tk.mainloop()
     
     def onKeyPress(self, event):
-        print(event.keycode)
-        self.keys.append(event.keycode)
+        # print(event.keycode)
+        self.keys.add(event.keycode)
+
     def onKeyRelease(self, event):
         self.keys.remove(event.keycode)
+
+    def keyPressed(self, keycode):
+        return keycode in self.keys
 
     def addState(self, state):
         self.states[state.getName()] = state
@@ -49,6 +53,7 @@ class Game:
 
     def addEnt(self, e):
         self.ents.append(e)
+
     def removeEnt(self, e):
         self.ents.remove(e)
 
@@ -58,11 +63,13 @@ class Game:
             
     def addAttr(self, name, value):
         setattr(self, name, value)
+
     def addMethod(self, method):
         setattr(self, method.__name__, types.MethodType(method, self))
 
     def init(self):
         self.initFunc()
+
     def reinit(self):
         self.reinitFunc()        
 

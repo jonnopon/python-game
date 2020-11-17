@@ -137,18 +137,18 @@ def menuFunc(game):
                             fill="white", font=("monospace", 25))
         
     if game.canChangeMenu:
-        if game.keyCodes.w in game.keys \
-            or game.keyCodes.upArrow in game.keys \
-            or game.keyCodes.numPad8 in game.keys:
+        if game.keyPressed(game.keyCodes.w) \
+            or game.keyPressed(game.keyCodes.upArrow) \
+            or game.keyPressed(game.keyCodes.numPad8):
                 
             game.menuSelection -= 1            
             if game.menuSelection < 0:
                 game.menuSelection = 2
             game.canChangeMenu = False
             
-        elif game.keyCodes.s in game.keys \
-            or game.keyCodes.downArrow in game.keys \
-            or game.keyCodes.numPad5 in game.keys:
+        elif game.keyPressed(game.keyCodes.s) \
+            or game.keyPressed(game.keyCodes.downArrow) \
+            or game.keyPressed(game.keyCodes.numPad5):
                 
             game.menuSelection += 1            
             if game.menuSelection > 2:
@@ -170,8 +170,8 @@ def menuFunc(game):
         game.canvas.create_text(250, 300, text=">", fill="white",
                             font=("monospace", 15))
         
-    if (game.keyCodes.space in game.keys \
-        or game.keyCodes.enter in game.keys) \
+    if game.keyPressed(game.keyCodes.space) \
+        or game.keyPressed(game.keyCodes.enter) \
         and game.menuTimeout is False:
             
         game.activeState("game")
@@ -204,40 +204,40 @@ def gameFunc(game):
                 game.ents[i].collidedWith(game.ents[j])
                 game.ents[j].collidedWith(game.ents[i])
         
-    if game.keyCodes.a in game.keys \
-        or game.keyCodes.leftArrow in game.keys \
-        or game.keyCodes.numPad4 in game.keys:
+    if game.keyPressed(game.keyCodes.a) \
+        or game.keyPressed(game.keyCodes.leftArrow) \
+        or game.keyPressed(game.keyCodes.numPad4):
             
         game.player.setImage("left")
         game.player.moveHor(-1)
         game.player.stopVer()
         
-    elif game.keyCodes.d in game.keys \
-        or game.keyCodes.rightArrow in game.keys \
-        or game.keyCodes.numPad6 in game.keys:
+    elif game.keyPressed(game.keyCodes.d) \
+        or game.keyPressed(game.keyCodes.rightArrow) \
+        or game.keyPressed(game.keyCodes.numPad6):
             
         game.player.setImage("right")
         game.player.moveHor(1)
         game.player.stopVer()
         
-    elif game.keyCodes.w in game.keys \
-        or game.keyCodes.upArrow in game.keys \
-        or game.keyCodes.numPad8 in game.keys:
+    elif game.keyPressed(game.keyCodes.w) \
+        or game.keyPressed(game.keyCodes.upArrow) \
+        or game.keyPressed(game.keyCodes.numPad8):
             
         game.player.setImage("up")
         game.player.moveVer(-1)
         game.player.stopHor()
         
-    elif game.keyCodes.s in game.keys \
-        or game.keyCodes.downArrow in game.keys \
-        or game.keyCodes.numPad5 in game.keys:
+    elif game.keyPressed(game.keyCodes.s) \
+        or game.keyPressed(game.keyCodes.downArrow) \
+        or game.keyPressed(game.keyCodes.numPad5):
 
         game.player.setImage("down")
         game.player.moveVer(1)
         game.player.stopHor()
         
-    if game.keyCodes.p in game.keys \
-        or game.keyCodes.esc in game.keys:
+    if game.keyPressed(game.keyCodes.p) \
+        or game.keyPressed(game.keyCodes.esc):
             
         game.activeState("paused")
         
@@ -262,7 +262,7 @@ def pausedFunc(game):
     for i in range(len(game.ents)):
         game.ents[i].update(game.canvas, 0)
             
-    if game.keyCodes.space in game.keys:
+    if game.keyPressed(game.keyCodes.space):
         game.activeState("game")
         
     game.canvas.create_text(320, 240, text="PAUSED", fill="white",
@@ -302,7 +302,7 @@ def deadFunc(game):
                                 str(game.highScores[game.difficulty]),
                                 fill="white", font=("monospace", 25))
                                 
-    if game.keyCodes.space in game.keys:
+    if game.keyPressed(game.keyCodes.space):
         game.reinit()
 
 """STEP 11: construct States with names and function bodies"""
